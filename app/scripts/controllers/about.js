@@ -8,10 +8,11 @@
  * Controller of the desarrolloAgilApp
  */
 angular.module('desarrolloAgilApp')
-  .controller('AboutCtrl', function () {
+  .controller('AboutCtrl', ['$scope', 'Datos',function ($scope, Datos) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+    console.log(Datos.getToken()+Datos.getActual());
+  }]);

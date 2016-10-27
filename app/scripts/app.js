@@ -18,6 +18,25 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .factory ('Datos',function () {
+    var token;
+    var Datos={};
+    var actual;
+    Datos.setActual = function (user){
+      actual=user;
+    };
+    Datos.getActual = function (){
+      return actual;
+    };
+    Datos.setToken = function (item){
+      token=item;
+    };
+    Datos.getToken = function (){
+      return token;
+    };
+    return Datos;
+
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
