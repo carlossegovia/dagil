@@ -40,6 +40,7 @@ angular.module('desarrolloAgilApp')
         return $resource('https://api.github.com/users/:username/repos/',null,{
           query: {
             method: 'GET',
+            isArray: true,
             headers: {
               'Authorization': token
             }

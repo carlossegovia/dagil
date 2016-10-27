@@ -8,10 +8,11 @@
  * Controller of the desarrolloAgilApp
  */
 angular.module('desarrolloAgilApp')
-  .controller('AboutCtrl', ['$scope', '$location', 'Datos', 'User',function ($scope, $location, Datos, User) {
+  .controller('AboutCtrl', ['$scope', '$location', 'Datos', 'User','Repos',function ($scope, $location, Datos, User, Repos) {
 
     $scope.actual=Datos.getActual();
     $scope.authToken=Datos.getToken();
+    $scope.repos = [];
     if($scope.authToken==="")
     { console.log("asdfasfasfd");
       window.alert("Ocurrio un error con la sesion del usuario");
@@ -21,8 +22,13 @@ angular.module('desarrolloAgilApp')
     $scope.buscar= function(){
       if ($scope.buscado!==""){
           User.get($scope.authToken).query({'username': $scope.buscado}).$promise.then(function(data) {
-          console.log(data);
-          $scope.actual=data;
+            Repos.get($scope.authToken).query({'username': $scope.buscado}).$promise.then(function(rep) {
+                $scope.actual=data;
+                $scope.repos=rep;
+            }, function (error) {
+              window.alert("Ocurrio un error!");
+            });
+
         }, function (error) {
           if (error.status==404){
             window.alert("No se encuentra el usuario");
