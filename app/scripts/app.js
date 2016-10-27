@@ -10,13 +10,9 @@
  */
 angular
   .module('desarrolloAgilApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
+
     'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    'ngRoute'
   ])
   .factory ('Datos',function () {
     var token="";
