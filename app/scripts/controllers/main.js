@@ -21,7 +21,7 @@ angular.module('desarrolloAgilApp')
     $scope.datos=CurrentUser.get($scope.authToken).query().$promise.then(function(data) {
       Datos.setActual(data);
       Datos.setToken($scope.authToken);
-      $location.path('/about');
+      $location.path('/repositories');
     }, function (error) {
       window.alert("Usuario o Contraseña incorrectos");
     });

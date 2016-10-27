@@ -13,21 +13,27 @@ angular.module('desarrolloAgilApp')
     $scope.actual=Datos.getActual();
     $scope.authToken=Datos.getToken();
     $scope.repos = [];
+
+    $scope.repos = Repos.get($scope.authToken).query({'username': $scope.actual.login});
+
     if($scope.authToken==="")
-    { console.log("asdfasfasfd");
+    {
       window.alert("Ocurrio un error con la sesion del usuario");
       $location.path('/');
     }
+
+
     $scope.buscado="";
     $scope.buscar= function(){
       if ($scope.buscado!==""){
-          User.get($scope.authToken).query({'username': $scope.buscado}).$promise.then(function(data) {
-            Repos.get($scope.authToken).query({'username': $scope.buscado}).$promise.then(function(rep) {
-                $scope.actual=data;
-                $scope.repos=rep;
-            }, function (error) {
-              window.alert("Ocurrio un error!");
-            });
+        User.get($scope.authToken).query({'username': $scope.buscado}).$promise.then(function(data) {
+          Repos.get($scope.authToken).query({'username': $scope.buscado}).$promise.then(function(rep) {
+            $scope.actual=data;
+            $scope.repos=rep;
+            $scope.buscado="";
+          }, function (error) {
+            window.alert("Ocurrio un error!");
+          });
 
         }, function (error) {
           if (error.status==404){
@@ -39,4 +45,5 @@ angular.module('desarrolloAgilApp')
         });
       }
     }
+
   }]);
