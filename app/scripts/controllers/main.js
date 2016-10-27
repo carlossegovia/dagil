@@ -14,14 +14,17 @@ angular.module('desarrolloAgilApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.username="rubenfig";
-    $scope.password="mangekyou1";
 
-    //Aca se generea el token de autenticacion
-    var authToken = "Basic " + btoa($scope.username + ":" + $scope.password);
+    $scope.username= "";
+    $scope.password= "";
 
-    //Aca se hace get de los datos, ahi dentro del then hay que asignar la variable que recibimos
-    $scope.datos=User.get(authToken).query({'username': 'carlossegovia'}).$promise.then(function(data) {
-      console.log(data);
-    });
+    $scope.login = function () {
+      //Aca se generea el token de autenticacion
+      var authToken = "Basic " + btoa($scope.username + ":" + $scope.password);
+
+      //Aca se hace get de los datos, ahi dentro del then hay que asignar la variable que recibimos
+      $scope.datos=User.get(authToken).query({'username': $scope.username}).$promise.then(function(data) {
+        console.log(data);
+      });
+    }
   });
