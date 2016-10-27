@@ -16,14 +16,12 @@
   ],
   "dependencies": {
     "angular": "^1.4.0",
-
     "jquery": "*",
     "jquery-ui": "*",
     "fontawesome": "*",
     "bootstrap-sass": "*",
-    
     "angular-resource": "^1.4.0",
-    "angular-route": "^1.4.0",
+    "angular-route": "^1.4.0"
 
   },
   "devDependencies": {
