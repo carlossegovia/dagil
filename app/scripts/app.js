@@ -19,7 +19,7 @@ angular
     'ngTouch'
   ])
   .factory ('Datos',function () {
-    var token;
+    var token="";
     var Datos={};
     var actual;
     Datos.setActual = function (user){

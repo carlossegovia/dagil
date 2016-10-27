@@ -30,9 +30,9 @@
     </div>
     <div class="col-lg-9">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="github username">
+        <input type="text" class="form-control" ng-model="buscado" placeholder="Github username">
         <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-default" type="button" ng-click="buscar()">Buscar</button>
       </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
