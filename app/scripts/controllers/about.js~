@@ -17,8 +17,8 @@ angular.module('desarrolloAgilApp')
     {
       window.alert("Ocurrio un error con la sesion del usuario");
       $location.path('/');
-    }else{
-    $scope.repos = Repos.get($scope.authToken).query({'username': $scope.actual.login});}
+    }
+    $scope.repos = Repos.get($scope.authToken).query({'username': $scope.actual.login});
 
     
 
