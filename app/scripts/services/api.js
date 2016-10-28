@@ -18,9 +18,9 @@ angular.module('desarrolloAgilApp')
               'Authorization': token
             }
           }
-        })
+        });
       }
-    }})
+    };})
   .factory('User', function ($resource) {
      return {
         get: function (token) {
@@ -31,9 +31,9 @@ angular.module('desarrolloAgilApp')
                 'Authorization': token
               }
             }
-          })
+          });
         }
-      }})
+      };})
   .factory('Repos', function ($resource) {
     return {
       get: function (token) {
@@ -45,7 +45,7 @@ angular.module('desarrolloAgilApp')
               'Authorization': token
             }
           }
-        })
+        });
       }
-    }
+    };
   });
